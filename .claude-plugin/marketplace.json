@@ -1,0 +1,16 @@
+{
+  "name": "claude-code-kit",
+  "description": "A small kit of Claude Code plugins: guardrails and workflows for everyday engineering.",
+  "owner": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "plugins": [
+    {
+      "name": "quality-guard",
+      "source": "./plugins/quality-guard",
+      "description": "Tier declaration and test-first hooks plus code quality skills (six-round protocol, TDD, consistency, pitfalls).",
+      "category": "development"
+    }
+  ]
+}
