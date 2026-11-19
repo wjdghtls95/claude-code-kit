@@ -1,0 +1,9 @@
+#!/bin/sh
+# Commit messages are permanent in public history, so they get the same identifier check
+DENYLIST="${CLAUDE_KIT_DENYLIST:-$HOME/.config/claude-code-kit/denylist.txt}"
+[ -f "$DENYLIST" ] || exit 0
+
+if grep -q -i -F -f "$DENYLIST" "$1"; then
+  echo "commit-msg: personal identifier from the denylist found in the commit message." >&2
+  exit 1
+fi

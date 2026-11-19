@@ -1,0 +1,24 @@
+#!/bin/sh
+# Blocks commits that contain secrets (gitleaks) or personal identifiers (denylist kept outside the repo)
+DENYLIST="${CLAUDE_KIT_DENYLIST:-$HOME/.config/claude-code-kit/denylist.txt}"
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "pre-commit: gitleaks is not installed (brew install gitleaks). Commit blocked." >&2
+  exit 1
+fi
+
+gitleaks git --pre-commit --staged --redact --no-banner || {
+  echo "pre-commit: gitleaks found a possible secret. Commit blocked." >&2
+  exit 1
+}
+
+if [ -f "$DENYLIST" ]; then
+  hits=$(git grep --cached -l -i -F -f "$DENYLIST" 2>/dev/null || true)
+  if [ -n "$hits" ]; then
+    echo "pre-commit: personal identifier from the denylist found in:" >&2
+    echo "$hits" >&2
+    exit 1
+  fi
+else
+  echo "pre-commit: denylist not found at $DENYLIST, skipping identifier check." >&2
+fi
