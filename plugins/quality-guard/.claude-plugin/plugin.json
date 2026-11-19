@@ -1,0 +1,13 @@
+{
+  "name": "quality-guard",
+  "version": "0.1.0",
+  "description": "Hooks and skills that make Claude declare a tier before editing source files, run a six-round protocol for risky changes, and write tests first.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["quality", "tdd", "hooks", "code-review", "guardrails"]
+}
