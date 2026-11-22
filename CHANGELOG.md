@@ -1,5 +1,12 @@
 # Changelog
 
+## decision-log 0.1.0
+
+- Skills: `topic-tracking`, `enhancement-tracking`, `pattern-capture`, `concept-update`, `decision-lookup`, `decision-index`
+- SessionStart reminder when `.claude/memory/pattern_candidates.md` has lines starting with `- [pending]`
+- Templates for the pattern buffer, the pattern index and a progress file, plus two example patterns
+- Optional shared settings file `.claude-kit.json`, kill switch `DECISION_LOG=off`
+
 ## quality-guard 0.1.0
 
 - Tier declaration hook: blocks source edits without `[A]`, `[B]` or `[C]` in the current turn, fails open when the transcript cannot be verified

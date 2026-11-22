@@ -16,8 +16,23 @@
 | 플러그인 | 하는 일 | 문서 |
 |----------|---------|------|
 | `quality-guard` | 소스 파일을 수정하기 전에 티어를 선언하게 하고, 위험한 변경에는 6라운드 프로토콜을 거치게 하고, 테스트를 먼저 쓰게 합니다 | [README](plugins/quality-guard/README.ko.md) |
+| `decision-log` | 결정, 열린 토픽, 미룬 작업, 교훈이 사라지지 않게 합니다: 토픽 추적, 고도화 목록, 패턴 수집, 결정 조회 | [README](plugins/decision-log/README.ko.md) |
 
 플러그인은 하나씩 추가됩니다.
+
+## 공통 설정
+
+프로젝트 파일을 읽거나 쓰는 플러그인은 프로젝트 루트의 선택 파일 `.claude-kit.json`을 찾습니다. 모든 키는 선택이고, 파일이 없어도 플러그인은 동작합니다.
+
+```json
+{
+  "progress_file": "docs/progress/current.md",
+  "decisions_dir": "docs/decisions",
+  "enhancement_file": "docs/enhancement-list.md"
+}
+```
+
+스킬이 읽어야 할 파일이 없으면 그 단계를 건너뛰고 한 줄로 알린 뒤 계속합니다. 스킬은 자기 일에 해당하는 파일(고도화 목록, 패턴 파일, `INDEX.md`)만 쓰고, 무엇을 어디에 썼는지 한 줄로 알립니다. 진행 기록 파일은 대신 만들어 주지 않습니다.
 
 ## 필요한 것
 
@@ -29,6 +44,7 @@
 python3 -m unittest discover -s tests -v
 claude plugin validate . --strict
 claude plugin validate ./plugins/quality-guard --strict
+claude plugin validate ./plugins/decision-log --strict
 ```
 
 ## 보안

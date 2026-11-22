@@ -11,6 +11,12 @@
       "source": "./plugins/quality-guard",
       "description": "Tier declaration and test-first hooks plus code quality skills (six-round protocol, TDD, consistency, pitfalls).",
       "category": "development"
+    },
+    {
+      "name": "decision-log",
+      "source": "./plugins/decision-log",
+      "description": "Skills and templates for open topics, postponed work, lessons and decisions: topic tracking, enhancement list, pattern capture, decision lookup and index.",
+      "category": "productivity"
     }
   ]
 }
