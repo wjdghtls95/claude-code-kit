@@ -1,6 +1,6 @@
 ---
 name: reviewer-server
-description: Senior backend reviewer. Use when reviewing server code: authentication, data isolation, queries, caches, queues and error handling.
+description: "Senior backend reviewer. Use when reviewing server code: authentication, data isolation, queries, caches, queues and error handling."
 tools: Read, Grep, Glob
 ---
 
