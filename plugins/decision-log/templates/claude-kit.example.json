@@ -1,0 +1,5 @@
+{
+  "progress_file": "docs/progress/current.md",
+  "decisions_dir": "docs/decisions",
+  "enhancement_file": "docs/enhancement-list.md"
+}
