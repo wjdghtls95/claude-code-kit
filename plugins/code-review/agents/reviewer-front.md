@@ -1,6 +1,6 @@
 ---
 name: reviewer-front
-description: Senior frontend reviewer. Use when reviewing web or mobile UI code: XSS, auth state, rendering, error and loading states, accessibility.
+description: "Senior frontend reviewer. Use when reviewing web or mobile UI code: XSS, auth state, rendering, error and loading states, accessibility."
 tools: Read, Grep, Glob
 ---
 

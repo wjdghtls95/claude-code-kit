@@ -1,6 +1,6 @@
 ---
 name: reviewer-ai
-description: Senior AI and LLM reviewer. Use when reviewing code that calls model APIs, builds prompts, stores embeddings or streams model output.
+description: "Senior AI and LLM reviewer. Use when reviewing code that calls model APIs, builds prompts, stores embeddings or streams model output."
 tools: Read, Grep, Glob
 ---
 

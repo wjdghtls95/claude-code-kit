@@ -1,6 +1,6 @@
 ---
 name: reviewer-infra
-description: Senior infrastructure reviewer. Use when reviewing deployment, CI/CD, containers, environment configuration and operational readiness.
+description: "Senior infrastructure reviewer. Use when reviewing deployment, CI/CD, containers, environment configuration and operational readiness."
 tools: Read, Grep, Glob
 ---
 
