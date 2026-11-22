@@ -1,0 +1,13 @@
+{
+  "name": "code-review",
+  "version": "0.1.0",
+  "description": "Skills and reviewer agents for code review: choose the right review level, run a four-reviewer pull request review, check how a UI looks, and keep a project REVIEW.md.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["code-review", "pull-request", "security", "review", "agents"]
+}

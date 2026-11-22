@@ -13,6 +13,12 @@
       "category": "development"
     },
     {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Review level routing, a four-reviewer pull request review, design review, REVIEW.md tooling and read-only reviewer agents.",
+      "category": "development"
+    },
+    {
       "name": "decision-log",
       "source": "./plugins/decision-log",
       "description": "Skills and templates for open topics, postponed work, lessons and decisions: topic tracking, enhancement list, pattern capture, decision lookup and index.",
