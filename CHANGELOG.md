@@ -1,5 +1,10 @@
 # Changelog
 
+## code-review 0.1.1
+
+- Fix: the `description` of the reviewer agents contained `: ` and was not valid YAML, so the agents loaded with empty metadata (no name, description or read-only tool list). The values are now quoted
+- Tests: a frontmatter check for every skill and agent of every plugin
+
 ## code-review 0.1.0
 
 - Skills: `review-routing`, `review-followup`, `pr-review`, `design-review`, `review-checklist`
