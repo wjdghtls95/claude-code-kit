@@ -1,0 +1,13 @@
+{
+  "name": "decision-log",
+  "version": "0.1.0",
+  "description": "Skills and templates that keep decisions, open topics, postponed work and lessons from getting lost: topic tracking, enhancement list, pattern capture, decision lookup and index.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["decisions", "notes", "patterns", "knowledge", "workflow"]
+}
