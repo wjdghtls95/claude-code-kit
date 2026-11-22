@@ -1,5 +1,12 @@
 # Changelog
 
+## code-review 0.1.0
+
+- Skills: `review-routing`, `review-followup`, `pr-review`, `design-review`, `review-checklist`
+- Read-only reviewer agents: `reviewer-server`, `reviewer-front`, `reviewer-ai`, `reviewer-infra`
+- Template: `REVIEW.template.md`
+- No hooks, nothing to install besides the plugin
+
 ## decision-log 0.1.0
 
 - Skills: `topic-tracking`, `enhancement-tracking`, `pattern-capture`, `concept-update`, `decision-lookup`, `decision-index`
