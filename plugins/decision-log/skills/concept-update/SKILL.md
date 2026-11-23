@@ -5,6 +5,8 @@ description: Change an already-confirmed decision in a decision document. Use wh
 
 Decision documents live in the folder named by `decisions_dir` in `.claude-kit.json`, otherwise `docs/decisions`. A confirmed decision is an entry marked as confirmed (for example a status table row with a check mark) and has `→ Why:` bullets.
 
+If the decisions folder or the document does not exist, say so in one line and stop.
+
 ## When this applies
 
 1. Read the decision document that covers the topic.

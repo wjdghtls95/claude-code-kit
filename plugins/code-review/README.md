@@ -38,7 +38,7 @@ Skills are namespaced by the plugin name:
 
 ## What it runs
 
-The skills only run commands that you can see in them: `git` commands in `pr-review`, `npx knip` and `vulture` for dead-code checks, `npm audit` or `pip check` when asked, and `npx playwright` plus the project's own dev command in `design-review`. `npx` may download a package the first time. The review itself never edits your code.
+The skills only run commands that you can see in them: `git` commands in `pr-review`, `npx knip` and `vulture` for dead-code checks, `npm audit` or `pip check` when asked, and `npx playwright` plus the project's own dev command in `design-review`. `npx` may download a package the first time. The review skills and agents only report findings and never edit your code. Small fixes after a review follow the rules in `review-routing`, and Claude says in one line what it changed.
 
 ## Settings
 
@@ -50,6 +50,10 @@ Everything works without settings. Optional keys in `.claude-kit.json` at the pr
 | `design_system_file` | The design system document used by `design-review` | the first file named `DESIGN_SYSTEM.md` found in the project |
 
 If a file is missing, the skill skips that step and says so in one line.
+
+## REVIEW.md and untrusted pull requests
+
+`REVIEW.md` is read as instructions by the reviewers. `pr-review` and the agents read the version on the default branch, so a pull request that edits `REVIEW.md` cannot hide its own findings. Treat a change to `REVIEW.md` like a change to your project instructions and review it by hand.
 
 ## Templates
 

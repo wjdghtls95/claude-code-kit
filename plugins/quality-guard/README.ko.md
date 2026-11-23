@@ -64,7 +64,7 @@ Claude가 코드를 다룰 때 규율을 지키게 하는 훅과 스킬입니다
 | 키 | 의미 |
 |----|------|
 | `source_extensions` | 티어 선언이 필요한 파일. 기본값은 흔한 코드 확장자 |
-| `skip_patterns` | 두 훅 모두 검사하지 않는 경로. 패턴은 폴더나 파일 이름의 처음부터 일치합니다(`dist/`는 `pkg/dist/a.js`와 일치하지만 `redist/a.js`와는 일치하지 않음). 기본값은 `node_modules/`, `dist/`, `build/`, `.git/`, 잠금 파일 등 |
+| `skip_patterns` | 두 훅 모두 검사하지 않는 경로. 패턴은 폴더나 파일 이름의 앞부분(접두) 일치입니다. `dist/`는 `pkg/dist/a.js`와 일치하지만 `redist/a.js`와는 일치하지 않고, `foo`는 `foobar/a.ts`와도 일치합니다. 기본값은 `node_modules/`, `dist/`, `build/`, `.git/`, 잠금 파일 등 |
 | `tdd.mappings` | 정규식 `source` → `test` 경로 템플릿(이름 있는 그룹이 `{name}`이 됨). 처음으로 적용되는 매핑이 결정합니다. `source`가 일치하고, `content_regex`가 있으면 새 파일 내용도 일치해야 적용됩니다. 이 목록이 비어 있지 않을 때만 테스트 먼저 훅이 동작 |
 | `tdd.mappings[].content_regex` | 선택. 새 파일 내용이 일치할 때만 적용 |
 | `tdd.test_file_patterns` | 선택. 테스트 파일로 보는 정규식(이런 파일은 막지 않음) |
@@ -77,7 +77,8 @@ Claude가 코드를 다룰 때 규율을 지키게 하는 훅과 스킬입니다
 | 방법 | 효과 |
 |------|------|
 | 환경 변수 `QUALITY_GUARD=off` | 훅 둘과 세션 안내가 모두 아무 일도 하지 않음 (`0`, `false`, `no`, `disable`, `disabled`도 가능) |
-| `.quality-guard.json`의 `"disable": ["tier_guard"]` | 훅 하나만 끔 |
+| `.quality-guard.json`의 `"disable": ["tier_guard"]` | 훅 하나만 끔(`tier_guard`를 끄면 세션 시작 안내도 조용해짐) |
+| 환경 변수 `QUALITY_GUARD_TAIL_BYTES` | 고급: 티어 검사가 세션 대화 기록의 끝에서 읽는 바이트 수(기본 2,000,000, 최대 50,000,000) |
 | `/plugin disable quality-guard` | 플러그인 전체를 끔 |
 | 플러그인 삭제 | 남는 것이 없음, 이 플러그인은 데이터를 저장하지 않음 |
 

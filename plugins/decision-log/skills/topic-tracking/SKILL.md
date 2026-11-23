@@ -47,4 +47,4 @@ Several skills in this kit read or update a file that tracks the project's progr
 2. `docs/progress/current.md`
 3. `progress.md` at the project root
 
-If none exists, skip the progress step, say so in one line, and continue with the rest of the skill. Never create the file unless the user asks. A starting template is in `progress.template.md`.
+If none exists, skip the progress step, say so in one line, and continue with the rest of the skill. Never create the file unless the user asks. A starting template is in `templates/progress.template.md` of this plugin.

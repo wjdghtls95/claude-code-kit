@@ -23,5 +23,12 @@ Control only the value of `Date.now` with `vi.spyOn(Date, 'now')` or `vi.setSyst
 ## When to apply
 - Testing TanStack Query hooks that depend on the current time
 
+## Alternatives considered
+- Faking only timers that the hook does not use: not practical, the hook's own timers are the ones that stall
+- Waiting in real time inside the test: slow and flaky
+
 ## When not to apply
 - Tests that do not involve TanStack Query, where fake timers are fine
+
+## Related patterns
+- Keep tests deterministic by controlling inputs (time, randomness) instead of the framework's internals

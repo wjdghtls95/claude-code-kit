@@ -100,6 +100,12 @@ class HookTests(unittest.TestCase):
         ctx = self.context(run("{}", {"CLAUDE_PROJECT_DIR": p.dir}))
         self.assertIn("1 pending pattern candidate", ctx)
 
+    def test_project_dir_env_wins_over_hook_cwd(self):
+        with_pending = self.project(buffer_text="- [pending] one (2026-01-01)\n")
+        without = self.project()
+        r = run(without.hook_input(), {"CLAUDE_PROJECT_DIR": with_pending.dir})
+        self.assertIn("1 pending pattern candidate", self.context(r))
+
     def test_kill_switch(self):
         p = self.project(buffer_text="- [pending] one (2026-01-01)\n")
         self.assertEqual(self.context(run(p.hook_input(), {"DECISION_LOG": "off"})), "")
@@ -109,6 +115,35 @@ class HookTests(unittest.TestCase):
         ctx = self.context(run(p.hook_input()))
         self.assertIn("10000 pending pattern candidate", ctx)
         self.assertLess(len(ctx), 2000)
+
+
+class ContentTests(unittest.TestCase):
+    def test_examples_follow_the_documented_file_name_and_sections(self):
+        sections = ["## Situation", "## Previous approach", "## Trigger", "## New approach",
+                    "## Alternatives considered", "## When to apply", "## When not to apply", "## Related patterns"]
+        base = os.path.join(PLUGIN, "examples")
+        names = sorted(os.listdir(base))
+        self.assertEqual(len(names), 2)
+        for n in names:
+            text = open(os.path.join(base, n), encoding="utf-8").read()
+            domain = re.search(r"(?m)^  domain: (.+)$", text).group(1).strip()
+            self.assertTrue(n.startswith(f"pattern_{domain}_"), n)
+            for s in sections:
+                self.assertIn(s, text, (n, s))
+
+    def test_lookup_and_update_skills_say_what_to_do_when_the_folder_is_missing(self):
+        for name in ("concept-update", "decision-lookup"):
+            text = open(os.path.join(PLUGIN, "skills", name, "SKILL.md"), encoding="utf-8").read()
+            self.assertRegex(text, r"(?i)does not exist.*say so", name)
+
+    def test_progress_template_has_the_sections_the_skills_write_to(self):
+        text = open(os.path.join(PLUGIN, "templates", "progress.template.md"), encoding="utf-8").read()
+        for s in ("## Working Notes", "## Status", "## Completed", "## Next"):
+            self.assertIn(s, text)
+
+    def test_template_path_is_unambiguous(self):
+        text = open(os.path.join(PLUGIN, "skills", "topic-tracking", "SKILL.md"), encoding="utf-8").read()
+        self.assertIn("`templates/progress.template.md`", text)
 
 
 class StructureTests(unittest.TestCase):
