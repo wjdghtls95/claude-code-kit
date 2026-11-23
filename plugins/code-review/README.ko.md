@@ -38,7 +38,7 @@
 
 ## 실행하는 것
 
-스킬이 실행하는 명령은 본문에 모두 보입니다. `pr-review`의 `git` 명령, 죽은 코드 점검용 `npx knip`과 `vulture`, 요청 시 `npm audit`이나 `pip check`, `design-review`의 `npx playwright`와 프로젝트 자체의 개발 서버 명령입니다. `npx`는 처음에 패키지를 내려받을 수 있습니다. 리뷰 자체는 코드를 고치지 않습니다.
+스킬이 실행하는 명령은 본문에 모두 보입니다. `pr-review`의 `git` 명령, 죽은 코드 점검용 `npx knip`과 `vulture`, 요청 시 `npm audit`이나 `pip check`, `design-review`의 `npx playwright`와 프로젝트 자체의 개발 서버 명령입니다. `npx`는 처음에 패키지를 내려받을 수 있습니다. 리뷰 스킬과 에이전트는 지적만 보고하고 코드를 고치지 않습니다. 리뷰 뒤의 작은 수정은 `review-routing`의 규칙을 따르고, Claude가 무엇을 바꿨는지 한 줄로 알립니다.
 
 ## 설정
 
@@ -50,6 +50,10 @@
 | `design_system_file` | `design-review`가 쓰는 디자인 시스템 문서 | 프로젝트에서 처음 찾은 `DESIGN_SYSTEM.md` |
 
 파일이 없으면 스킬은 그 단계를 건너뛰고 한 줄로 알립니다.
+
+## REVIEW.md와 신뢰할 수 없는 PR
+
+리뷰어는 `REVIEW.md`를 지시문처럼 읽습니다. `pr-review`와 에이전트는 기본 브랜치의 버전을 읽기 때문에, `REVIEW.md`를 고치는 PR이 자기 지적을 숨길 수 없습니다. `REVIEW.md`의 변경은 프로젝트 지시문의 변경처럼 직접 검토하세요.
 
 ## 템플릿
 

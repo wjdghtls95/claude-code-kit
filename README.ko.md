@@ -17,6 +17,7 @@
 |----------|---------|------|
 | `quality-guard` | 소스 파일을 수정하기 전에 티어를 선언하게 하고, 위험한 변경에는 6라운드 프로토콜을 거치게 하고, 테스트를 먼저 쓰게 합니다 | [README](plugins/quality-guard/README.ko.md) |
 | `code-review` | 알맞은 리뷰 수준을 고르고, 네 리뷰어의 PR 리뷰를 돌리고, UI가 어떻게 보이는지 검사하고, 프로젝트 REVIEW.md를 관리합니다. 읽기 전용 리뷰어 에이전트 포함 | [README](plugins/code-review/README.ko.md) |
+| `git-workflow` | git 전달 과정: ship(커밋, 푸시, PR), land(머지와 정리), 브랜치 점검, 안전한 git 규칙, 기본 규칙 | [README](plugins/git-workflow/README.ko.md) |
 | `decision-log` | 결정, 열린 토픽, 미룬 작업, 교훈이 사라지지 않게 합니다: 토픽 추적, 고도화 목록, 패턴 수집, 결정 조회 | [README](plugins/decision-log/README.ko.md) |
 
 플러그인은 하나씩 추가됩니다.
@@ -34,7 +35,7 @@
 }
 ```
 
-스킬이 읽어야 할 파일이 없으면 그 단계를 건너뛰고 한 줄로 알린 뒤 계속합니다. 스킬은 자기 일에 해당하는 파일(예: 고도화 목록, 패턴 파일, `INDEX.md`, `REVIEW.md`, 요청받은 진행 기록 항목)만 쓰고, 무엇을 어디에 썼는지 한 줄로 알립니다. 진행 기록 파일은 대신 만들어 주지 않습니다.
+스킬이 읽어야 할 파일이 없으면 그 단계를 건너뛰고 한 줄로 알린 뒤 계속합니다(그 파일이 일의 전부인 스킬은 알리고 멈춥니다). 스킬은 자기 일에 해당하는 파일(예: 고도화 목록, 패턴 파일, `INDEX.md`, `REVIEW.md`, 요청받은 진행 기록 항목)만 쓰고, 무엇을 어디에 썼는지 한 줄로 알립니다. 진행 기록 파일은 대신 만들어 주지 않습니다.
 
 ## 필요한 것
 
@@ -48,6 +49,7 @@ claude plugin validate . --strict
 claude plugin validate ./plugins/quality-guard --strict
 claude plugin validate ./plugins/decision-log --strict
 claude plugin validate ./plugins/code-review --strict
+claude plugin validate ./plugins/git-workflow --strict
 ```
 
 ## 보안

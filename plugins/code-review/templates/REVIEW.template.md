@@ -81,3 +81,5 @@ List decisions the team confirmed on purpose, so they are not flagged again. Exa
 | Critical | Breaks behavior, leaks data, or loses data. Block the merge |
 | Important | A real risk or a likely bug. Fix in this change |
 | Nit | Style or taste. Mention briefly |
+
+The reviewer agents of this plugin report Critical, Warning and Suggestion. Warning means Important, and Suggestion means Nit.

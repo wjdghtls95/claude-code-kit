@@ -18,6 +18,11 @@ Set QUALITY_GUARD=off to disable the hooks."""
 def main():
     if common.is_disabled():
         return 0
+    hook = common.read_hook_input(sys.stdin) or {}
+    directory = common.project_dir(hook)
+    config, _ = common.load_config(directory)
+    if common.hook_disabled(config, "tier_guard"):
+        return 0  # the reminder is about the tier rule, so it follows the hook setting
     payload = {"hookSpecificOutput": {"hookEventName": "SessionStart", "additionalContext": CONTEXT}}
     print(json.dumps(payload))
     return 0

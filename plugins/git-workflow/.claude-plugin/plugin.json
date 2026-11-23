@@ -1,0 +1,13 @@
+{
+  "name": "git-workflow",
+  "version": "0.1.0",
+  "description": "Skills for the git delivery loop: ship (commit, push, pull request), land (merge and clean up), branch hygiene checks, safe-git rules, a ship reminder and default conventions.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["git", "pull-request", "workflow", "branches", "commits"]
+}

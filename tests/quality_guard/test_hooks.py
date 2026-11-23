@@ -390,6 +390,23 @@ class SessionContextTests(HookCase):
         code, _, out = self.run_hook("session_context.py", {}, env_extra={"QUALITY_GUARD": "off"})
         self.assertEqual((code, out.strip()), (0, ""))
 
+    def test_silent_when_tier_guard_is_disabled_in_config(self):
+        self.write_config({"disable": ["tier_guard"]})
+        code, _, out = self.run_hook("session_context.py", {"hook_event_name": "SessionStart", "cwd": self.project})
+        self.assertEqual((code, out.strip()), (0, ""))
+
+    def test_still_outputs_when_only_tdd_guard_is_disabled(self):
+        self.write_config({"disable": ["tdd_guard"]})
+        code, _, out = self.run_hook("session_context.py", {"hook_event_name": "SessionStart", "cwd": self.project})
+        self.assertEqual(code, 0)
+        self.assertIn("additionalContext", out)
+
+    def test_still_outputs_when_config_is_broken(self):
+        self.write_config(None, raw="{not json")
+        code, _, out = self.run_hook("session_context.py", {"hook_event_name": "SessionStart", "cwd": self.project})
+        self.assertEqual(code, 0)
+        self.assertIn("additionalContext", out)
+
 
 if __name__ == "__main__":
     unittest.main()

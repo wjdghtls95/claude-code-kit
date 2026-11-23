@@ -15,7 +15,7 @@ OFF_VALUES = {"off", "0", "false", "no", "disable", "disabled"}
 
 def project_dir(hook):
     cwd = hook.get("cwd") if isinstance(hook, dict) else None
-    return cwd or os.environ.get("CLAUDE_PROJECT_DIR") or os.getcwd()
+    return os.environ.get("CLAUDE_PROJECT_DIR") or cwd or os.getcwd()
 
 
 def count_pending(path):

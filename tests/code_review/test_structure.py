@@ -81,6 +81,24 @@ class StructureTests(unittest.TestCase):
         for name in AGENTS:
             self.assertIn("REVIEW.md", read("agents", name + ".md"), name)
 
+    def test_review_md_is_read_from_the_default_branch_so_a_pr_cannot_silence_itself(self):
+        text = read("skills", "pr-review", "SKILL.md")
+        self.assertIn("git show origin/", text)
+        self.assertRegex(text, r"(?i)changes `REVIEW\.md`")
+        for name in AGENTS:
+            self.assertRegex(read("agents", name + ".md"), r"(?i)default branch", name)
+
+    def test_severity_levels_have_a_mapping(self):
+        text = read("skills", "pr-review", "SKILL.md")
+        self.assertIn("Severity mapping", text)
+        template = read("templates", "REVIEW.template.md")
+        self.assertIn("Warning", template)
+
+    def test_progress_template_has_the_review_issue_section(self):
+        text = read("templates", "progress.template.md")
+        for s in ("## Review Issues", "## Status", "## Next"):
+            self.assertIn(s, text)
+
     def test_auto_fix_is_described_as_a_proposal(self):
         text = read("skills", "pr-review", "SKILL.md")
         self.assertIn("never edits files", text)

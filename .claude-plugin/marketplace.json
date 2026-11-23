@@ -23,6 +23,12 @@
       "source": "./plugins/decision-log",
       "description": "Skills and templates for open topics, postponed work, lessons and decisions: topic tracking, enhancement list, pattern capture, decision lookup and index.",
       "category": "productivity"
+    },
+    {
+      "name": "git-workflow",
+      "source": "./plugins/git-workflow",
+      "description": "Ship, land, branch checks, safe-git rules, a ship reminder and default git conventions.",
+      "category": "development"
     }
   ]
 }

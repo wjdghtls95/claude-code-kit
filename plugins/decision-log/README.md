@@ -64,7 +64,8 @@ Turn it off with `DECISION_LOG=off` in the environment (`0`, `false`, `no`, `dis
 
 - `templates/pattern_candidates.md` — the buffer file for pattern candidates
 - `templates/PATTERN_INDEX.md` — an empty pattern index
-- `examples/` — two example patterns showing the pattern file format
+- `templates/progress.template.md` — a starting progress file with a Working Notes section
+- `examples/` — two example patterns showing the pattern file format and file names
 
 ## Development
 

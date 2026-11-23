@@ -64,7 +64,8 @@
 
 - `templates/pattern_candidates.md` — 패턴 후보 버퍼 파일
 - `templates/PATTERN_INDEX.md` — 비어 있는 패턴 색인
-- `examples/` — 패턴 파일 형식을 보여 주는 예시 2개
+- `templates/progress.template.md` — 작업 노트 구역이 있는 진행 기록 시작용 파일
+- `examples/` — 패턴 파일 형식과 파일 이름을 보여 주는 예시 2개
 
 ## 개발
 

@@ -64,7 +64,7 @@ Everything works without configuration. To change the defaults, create `.quality
 | Key | Meaning |
 |-----|---------|
 | `source_extensions` | Which files need a tier declaration. Default: common code extensions |
-| `skip_patterns` | Paths that are never checked, by either hook. A pattern matches from the start of a folder or file name (`dist/` matches `pkg/dist/a.js` but not `redist/a.js`). Default: `node_modules/`, `dist/`, `build/`, `.git/`, lock files and similar |
+| `skip_patterns` | Paths that are never checked, by either hook. A pattern is a prefix match on a folder or file name: `dist/` matches `pkg/dist/a.js` but not `redist/a.js`, and `foo` also matches `foobar/a.ts`. Default: `node_modules/`, `dist/`, `build/`, `.git/`, lock files and similar |
 | `tdd.mappings` | Regex `source` → `test` path template (named groups become `{name}`). The first mapping that applies decides: its `source` matches and, if it has a `content_regex`, the new file's content matches too. The test-first hook only runs when this list is non-empty |
 | `tdd.mappings[].content_regex` | Optional. Enforce only when the new file's content matches |
 | `tdd.test_file_patterns` | Optional. Regexes that mark a file as a test file (these are never blocked) |
@@ -77,7 +77,8 @@ Invalid settings (broken JSON, wrong value types, invalid regular expressions) a
 | How | Effect |
 |-----|--------|
 | `QUALITY_GUARD=off` in the environment | Both hooks and the session reminder do nothing (`0`, `false`, `no`, `disable` and `disabled` also work) |
-| `"disable": ["tier_guard"]` in `.quality-guard.json` | Turns off one hook only |
+| `"disable": ["tier_guard"]` in `.quality-guard.json` | Turns off one hook only (turning off `tier_guard` also silences the session reminder) |
+| `QUALITY_GUARD_TAIL_BYTES` in the environment | Advanced: how many bytes of the end of the session transcript the tier check reads (default 2,000,000, at most 50,000,000) |
 | `/plugin disable quality-guard` | Disables the whole plugin |
 | Remove the plugin | Nothing is left behind, the plugin writes no data |
 

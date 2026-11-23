@@ -1,6 +1,6 @@
 {
   "name": "quality-guard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hooks and skills that make Claude declare a tier before editing source files, run a six-round protocol for risky changes, and write tests first.",
   "author": {
     "name": "wjdghtls95",
