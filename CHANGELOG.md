@@ -1,5 +1,10 @@
 # Changelog
 
+## session-handoff 0.1.0
+
+- Skills: `wrap-up`, `resume`, `next-task-check`
+- A progress file template, no hooks, nothing to install besides the plugin
+
 ## quality-guard 0.1.1
 
 - Fix: the session-start reminder now follows `"disable": ["tier_guard"]` in `.quality-guard.json`, so it no longer says a hook blocks edits when that hook is off
