@@ -1,0 +1,13 @@
+{
+  "name": "session-handoff",
+  "version": "0.1.0",
+  "description": "Skills for handing work from one session to the next: wrap up a session, resume where you left off, and check what to do next, all driven by a progress file.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["session", "handoff", "progress", "workflow", "resume"]
+}

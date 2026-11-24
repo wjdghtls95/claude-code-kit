@@ -29,6 +29,12 @@
       "source": "./plugins/git-workflow",
       "description": "Ship, land, branch checks, safe-git rules, a ship reminder and default git conventions.",
       "category": "development"
+    },
+    {
+      "name": "session-handoff",
+      "source": "./plugins/session-handoff",
+      "description": "Wrap up a session, resume where you left off and check what to do next, driven by a progress file.",
+      "category": "productivity"
     }
   ]
 }
