@@ -1,5 +1,11 @@
 # Changelog
 
+## lookup 0.1.0
+
+- Skill `find` (`/lookup:find`): code lookups start in the project (existing usage, installed version, installed source and types), information lookups prefer primary sources, open the page the answer rests on and check dates; every answer lists sources and what was not confirmed
+- Script `scripts/project_context.py`: installed version, local source folder, shipped changelog and readme, and repository, homepage and changelog links for npm (including pnpm workspaces), Python and Go
+- UserPromptSubmit reminder that points clear lookup requests to the skill (explicit search or code requests, pasted errors, freshness words next to a named tool; never opinion questions), kill switch `LOOKUP=off`
+
 ## session-handoff 0.1.0
 
 - Skills: `wrap-up`, `resume`, `next-task-check`

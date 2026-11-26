@@ -35,6 +35,12 @@
       "source": "./plugins/session-handoff",
       "description": "Wrap up a session, resume where you left off and check what to do next, driven by a progress file.",
       "category": "productivity"
+    },
+    {
+      "name": "lookup",
+      "source": "./plugins/lookup",
+      "description": "Look things up properly: code that fits your installed library version, information from primary sources with dates, sources and what was not confirmed.",
+      "category": "productivity"
     }
   ]
 }

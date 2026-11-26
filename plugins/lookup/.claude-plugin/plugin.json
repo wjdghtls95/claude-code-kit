@@ -1,0 +1,13 @@
+{
+  "name": "lookup",
+  "version": "0.1.0",
+  "description": "Look things up properly while working: code that fits the library version your project really has installed, and information checked against primary sources and dates, with sources and what could not be confirmed.",
+  "author": {
+    "name": "wjdghtls95",
+    "url": "https://github.com/wjdghtls95"
+  },
+  "homepage": "https://github.com/wjdghtls95/claude-code-kit",
+  "repository": "https://github.com/wjdghtls95/claude-code-kit",
+  "license": "MIT",
+  "keywords": ["search", "research", "documentation", "versions", "sources"]
+}
