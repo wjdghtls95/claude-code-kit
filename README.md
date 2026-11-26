@@ -19,6 +19,7 @@ A small kit of Claude Code plugins: guardrails and workflows for everyday engine
 | `code-review` | Picks the right review level, runs a four-reviewer pull request review, checks how a UI looks, and keeps a project REVIEW.md. Includes read-only reviewer agents | [README](plugins/code-review/README.md) |
 | `git-workflow` | The git delivery loop: ship (commit, push, pull request), land (merge and clean up), branch checks, safe-git rules and default conventions | [README](plugins/git-workflow/README.md) |
 | `session-handoff` | Hands work from one session to the next with a progress file: wrap up, resume, and check what to do next | [README](plugins/session-handoff/README.md) |
+| `lookup` | Look things up properly while working: code that fits the library version your project has installed, and information from primary sources with dates, plus a reminder so Claude actually uses it | [README](plugins/lookup/README.md) |
 | `decision-log` | Keeps decisions, open topics, postponed work and lessons from getting lost: topic tracking, enhancement list, pattern capture, decision lookup | [README](plugins/decision-log/README.md) |
 
 More plugins will be added one at a time.
@@ -52,6 +53,7 @@ claude plugin validate ./plugins/decision-log --strict
 claude plugin validate ./plugins/code-review --strict
 claude plugin validate ./plugins/git-workflow --strict
 claude plugin validate ./plugins/session-handoff --strict
+claude plugin validate ./plugins/lookup --strict
 ```
 
 ## Security
