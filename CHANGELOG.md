@@ -1,5 +1,10 @@
 # Changelog
 
+## quality-guard 0.2.1
+
+- `code-standard`: routes, header names, environment variable names and SQL count as values that change; domain values are enums; test examples spell contract strings out
+- `tdd-rule`: put contract strings in the mutation list
+
 ## quality-guard 0.2.0
 
 - Skill `code-standard`: a TypeScript standard that ESLint checks (`templates/eslint-standard.js`), the review rules a linter cannot check, and a refactoring procedure that compares old and new code on many inputs
