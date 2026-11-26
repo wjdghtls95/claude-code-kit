@@ -93,6 +93,7 @@ Passing tests and tests that guard the code are not the same thing. For the rule
 2. Run `python3 <base directory>/../../scripts/mutation_check.py --root <project root>` (add indexes to run only some). It changes one place at a time, runs the tests and puts the file back. Do nothing else in the project while it runs.
 3. **KILLED** is good: a test failed. **SURVIVED** means no test guards that rule: write the test that catches it first, check that it passes on the real code and fails on the mutated code, then run the check again. **NOT_APPLIED** means the find text no longer exists, so update the list.
 4. When you add an important rule, add its mutation to the list in the same change.
+5. Include contract strings shared with other programs (enum values, routes, header names). Tests catch those mutations only when their examples spell the strings out instead of importing the same constant.
 
 ## Test file location
 

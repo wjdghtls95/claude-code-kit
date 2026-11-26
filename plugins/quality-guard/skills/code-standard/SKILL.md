@@ -59,7 +59,8 @@ const RETRY_WINDOW_MS = 300_000;
 ```
 
 **Separate what changes from what does not.**
-- Values that change (limits, time windows, error codes) live in one file each, for example `policy.ts` and `error-codes.ts`. Call sites do not write the numbers or strings.
+- Values that change (limits, time windows, error codes, routes, header names, environment variable names, SQL statements) get a name and live in one place, for example `policy.constants.ts` and `error-codes.ts`. Fixed domain values are an `enum`; shapes are types, interfaces or schemas (for example zod). Call sites do not write the numbers or strings.
+- Tests are the exception: request and response examples spell contract strings out (`'order_paid'`, `'/v1/orders'`) instead of importing the constant, so a changed enum value or route fails a test.
 - Rules that do not change are pure functions from input to output. They know nothing about the framework, the database or the clock.
 - Side effects (database, clock, network) are injected at the edge, so tests can move time and swap the database.
 - Make an abstraction when a second implementation is needed. Boundaries such as the clock, the database and HTTP are injected from the start.
