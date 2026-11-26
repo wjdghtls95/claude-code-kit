@@ -38,8 +38,10 @@ Before writing any code, complete ALL 6 rounds below in order. Do not skip.
 
 **[Round 3 — Reference]** Name one well-known open-source project or established pattern that solves this class of problem. Compare your approach: where does it align, where does it deviate, and is the deviation justified? If you can't name one → say so explicitly.
 - Gotchas check (mandatory when introducing a new external API): "Have the return value, exceptions, and side effects of this API been verified against your project's known-gotchas notes? If not documented, verify explicitly and add a gotcha entry if needed."
+- Structure check (mandatory when adding a file or folder): "Does the location follow the project's structure decisions (team's existing projects, then framework and tool conventions, then what changes together)? Name the evidence." See the `project-structure` skill.
+- Contract check (mandatory when changing a shared type, an API request or response shape, or an event payload): "Who else reads this shape: other services, mobile or web clients, stored data? Is the change compatible with each of them?" If not, change both sides in the same plan or keep the old shape working.
 
-**[Round 4 — Simplicity]** Ask: "Can this be written in half the code without losing correctness or clarity?" If yes → rewrite it. If no → explain specifically why not.
+**[Round 4 — Simplicity]** Ask: "Can this be written in half the code without losing correctness or clarity?" If yes → rewrite it. If no → explain specifically why not. If the project lints with the `code-standard` config, the change must keep zero violations.
 
 **[Round 5 — Durability]** Ask: "What is the single most likely change request for this code in 3 months?" Does the current design handle it without a rewrite? If not → flag whether the design needs rethinking now.
 - Rollback check (mandatory when writing to DB or external state): "If this code writes wrong data, is there a recovery path? Can it be rolled back without manual intervention, or does it require a migration/support ticket?" If no rollback path exists → either add one or document the gap explicitly.

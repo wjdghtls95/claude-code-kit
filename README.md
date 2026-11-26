@@ -15,7 +15,7 @@ A small kit of Claude Code plugins: guardrails and workflows for everyday engine
 
 | Plugin | What it does | Docs |
 |--------|--------------|------|
-| `quality-guard` | Makes Claude declare a tier before editing source files, run a six-round protocol for risky changes and write tests first | [README](plugins/quality-guard/README.md) |
+| `quality-guard` | Makes Claude declare a tier before editing source files, run a six-round protocol for risky changes, write tests first, and keep a lint-checked TypeScript code standard | [README](plugins/quality-guard/README.md) |
 | `code-review` | Picks the right review level, runs a four-reviewer pull request review, checks how a UI looks, and keeps a project REVIEW.md. Includes read-only reviewer agents | [README](plugins/code-review/README.md) |
 | `git-workflow` | The git delivery loop: ship (commit, push, pull request), land (merge and clean up), branch checks, safe-git rules and default conventions | [README](plugins/git-workflow/README.md) |
 | `session-handoff` | Hands work from one session to the next with a progress file: wrap up, resume, and check what to do next | [README](plugins/session-handoff/README.md) |

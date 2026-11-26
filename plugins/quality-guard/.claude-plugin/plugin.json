@@ -1,7 +1,7 @@
 {
   "name": "quality-guard",
-  "version": "0.1.1",
-  "description": "Hooks and skills that make Claude declare a tier before editing source files, run a six-round protocol for risky changes, and write tests first.",
+  "version": "0.2.0",
+  "description": "Hooks and skills that make Claude declare a tier before editing source files, run a six-round protocol for risky changes, write tests first, and keep a lint-checked TypeScript code standard.",
   "author": {
     "name": "wjdghtls95",
     "url": "https://github.com/wjdghtls95"
