@@ -37,12 +37,19 @@ Skills are namespaced by the plugin name:
 | Skill | Use it for |
 |-------|-----------|
 | `/quality-guard:code-generation-protocol` | The tiers, the six rounds and the confirmation gate |
-| `/quality-guard:tdd-rule` | Test list, Red, Green, Refactor |
+| `/quality-guard:tdd-rule` | Test list, Red, Green, Refactor, readable tests, and a mutation check that shows whether the tests really guard the code |
 | `/quality-guard:coding-behavior-guidelines` | Think before coding, simplicity, surgical changes |
 | `/quality-guard:code-consistency` | Flag pattern changes, Rule of Three |
 | `/quality-guard:code-pitfalls` | Bug patterns found in real reviews |
+| `/quality-guard:code-standard` | A TypeScript code standard that ESLint checks (bundled config), the review rules a linter cannot check, and refactoring without changing behavior |
+| `/quality-guard:project-structure` | How to decide folder structure, defaults, and letting the linter keep the dependency direction |
 
 A short reminder of the tier rule is added to every session when it starts.
+
+Two files come with the skills:
+
+- `templates/eslint-standard.js`: the ESLint flat config behind `code-standard`. Copy it into a TypeScript project and install `eslint @eslint/js typescript-eslint @stylistic/eslint-plugin` (tested with ESLint 9, typescript-eslint 8, @stylistic 5).
+- `scripts/mutation_check.py`: breaks the source one place at a time from a list in `.mutations.json`, runs your tests and puts the file back. It changes source files while it runs and keeps a `.mutation-backup` copy next to each one until it is restored (Ctrl+C and a normal kill restore the file; after a hard kill the next run refuses to start until you restore it from the copy). See the `tdd-rule` skill.
 
 ## Configuration
 
@@ -80,7 +87,7 @@ Invalid settings (broken JSON, wrong value types, invalid regular expressions) a
 | `"disable": ["tier_guard"]` in `.quality-guard.json` | Turns off one hook only (turning off `tier_guard` also silences the session reminder) |
 | `QUALITY_GUARD_TAIL_BYTES` in the environment | Advanced: how many bytes of the end of the session transcript the tier check reads (default 2,000,000, at most 50,000,000) |
 | `/plugin disable quality-guard` | Disables the whole plugin |
-| Remove the plugin | Nothing is left behind, the plugin writes no data |
+| Remove the plugin | Nothing is left behind, the plugin stores no data (`mutation_check.py` changes your source files only while it runs) |
 
 ## How the tier check works and what it cannot do
 

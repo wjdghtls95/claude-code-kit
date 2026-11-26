@@ -15,7 +15,7 @@
 
 | 플러그인 | 하는 일 | 문서 |
 |----------|---------|------|
-| `quality-guard` | 소스 파일을 수정하기 전에 티어를 선언하게 하고, 위험한 변경에는 6라운드 프로토콜을 거치게 하고, 테스트를 먼저 쓰게 합니다 | [README](plugins/quality-guard/README.ko.md) |
+| `quality-guard` | 소스 파일을 수정하기 전에 티어를 선언하게 하고, 위험한 변경에는 6라운드 프로토콜을 거치게 하고, 테스트를 먼저 쓰게 하고, 린트로 검사하는 TypeScript 코드 기준을 제공합니다 | [README](plugins/quality-guard/README.ko.md) |
 | `code-review` | 알맞은 리뷰 수준을 고르고, 네 리뷰어의 PR 리뷰를 돌리고, UI가 어떻게 보이는지 검사하고, 프로젝트 REVIEW.md를 관리합니다. 읽기 전용 리뷰어 에이전트 포함 | [README](plugins/code-review/README.ko.md) |
 | `git-workflow` | git 전달 과정: ship(커밋, 푸시, PR), land(머지와 정리), 브랜치 점검, 안전한 git 규칙, 기본 규칙 | [README](plugins/git-workflow/README.ko.md) |
 | `session-handoff` | 진행 기록 파일로 작업을 다음 세션에 넘깁니다: 마무리, 이어서 시작, 다음 할 일 확인 | [README](plugins/session-handoff/README.ko.md) |

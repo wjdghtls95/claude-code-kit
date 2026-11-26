@@ -37,12 +37,19 @@ Claude가 코드를 다룰 때 규율을 지키게 하는 훅과 스킬입니다
 | 스킬 | 용도 |
 |------|------|
 | `/quality-guard:code-generation-protocol` | 티어, 6라운드, 확인 단계 |
-| `/quality-guard:tdd-rule` | 테스트 목록, Red, Green, Refactor |
+| `/quality-guard:tdd-rule` | 테스트 목록, Red, Green, Refactor, 읽기 쉬운 테스트, 테스트가 코드를 실제로 지키는지 보는 변이 확인 |
 | `/quality-guard:coding-behavior-guidelines` | 코딩 전에 생각하기, 단순성, 최소 변경 |
 | `/quality-guard:code-consistency` | 패턴 변경 알리기, 세 번째 중복 규칙 |
 | `/quality-guard:code-pitfalls` | 실제 리뷰에서 나온 버그 패턴 |
+| `/quality-guard:code-standard` | ESLint가 검사하는 TypeScript 코드 기준(설정 파일 포함), 린트로 못 보는 리뷰 기준, 동작을 바꾸지 않는 리팩터링 절차 |
+| `/quality-guard:project-structure` | 폴더 구조를 정하는 순서와 기본값, 의존 방향을 린트가 지키게 하는 방법 |
 
 세션이 시작될 때마다 티어 규칙을 짧게 상기시키는 안내가 추가됩니다.
+
+스킬과 함께 파일 두 개가 들어 있습니다.
+
+- `templates/eslint-standard.js`: `code-standard`의 ESLint 설정(flat config)입니다. TypeScript 프로젝트에 복사하고 `eslint @eslint/js typescript-eslint @stylistic/eslint-plugin`을 설치합니다(ESLint 9, typescript-eslint 8, @stylistic 5로 시험함).
+- `scripts/mutation_check.py`: `.mutations.json` 목록대로 소스를 한 곳씩 일부러 망가뜨리고 테스트를 돌린 뒤 파일을 되돌립니다. 도는 동안 소스 파일이 바뀌고, 되돌릴 때까지 파일 옆에 `.mutation-backup` 사본을 둡니다(Ctrl+C나 일반 종료는 파일을 되돌리고, 강제 종료 뒤에는 사본으로 되돌릴 때까지 다음 실행을 거부합니다). 자세한 내용은 `tdd-rule` 스킬에 있습니다.
 
 ## 설정
 
@@ -80,7 +87,7 @@ Claude가 코드를 다룰 때 규율을 지키게 하는 훅과 스킬입니다
 | `.quality-guard.json`의 `"disable": ["tier_guard"]` | 훅 하나만 끔(`tier_guard`를 끄면 세션 시작 안내도 조용해짐) |
 | 환경 변수 `QUALITY_GUARD_TAIL_BYTES` | 고급: 티어 검사가 세션 대화 기록의 끝에서 읽는 바이트 수(기본 2,000,000, 최대 50,000,000) |
 | `/plugin disable quality-guard` | 플러그인 전체를 끔 |
-| 플러그인 삭제 | 남는 것이 없음, 이 플러그인은 데이터를 저장하지 않음 |
+| 플러그인 삭제 | 남는 것이 없음, 이 플러그인은 데이터를 저장하지 않음 (`mutation_check.py`는 도는 동안에만 소스 파일을 바꿈) |
 
 ## 티어 검사가 하는 일과 못 하는 일
 

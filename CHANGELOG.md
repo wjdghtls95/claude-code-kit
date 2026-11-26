@@ -1,10 +1,19 @@
 # Changelog
 
+## quality-guard 0.2.0
+
+- Skill `code-standard`: a TypeScript standard that ESLint checks (`templates/eslint-standard.js`), the review rules a linter cannot check, and a refactoring procedure that compares old and new code on many inputs
+- Skill `project-structure`: a fixed order for deciding folder structure, defaults, a decision table, and ESLint rules that keep the dependency direction
+- Script `scripts/mutation_check.py`: runs the mutations listed in `.mutations.json` one at a time and reports which ones the tests miss; restores each file, also on Ctrl+C or SIGTERM; after a hard kill it refuses to start until the backup is restored
+- `tdd-rule`: readable tests and the mutation check
+- ESLint template covers `.tsx` files and the usual test folders (`test/`, `tests/`, `__tests__/`, `*.test.*`, `*.spec.*`)
+- `code-generation-protocol`: structure check and contract check in round 3, zero lint violations in round 4
+
 ## lookup 0.1.0
 
 - Skill `find` (`/lookup:find`): code lookups start in the project (existing usage, installed version, installed source and types), information lookups prefer primary sources, open the page the answer rests on and check dates; every answer lists sources and what was not confirmed
 - Script `scripts/project_context.py`: installed version, local source folder, shipped changelog and readme, and repository, homepage and changelog links for npm (including pnpm workspaces), Python and Go
-- UserPromptSubmit reminder that points clear lookup requests to the skill (explicit search or code requests, pasted errors, freshness words next to a named tool; never opinion questions), kill switch `LOOKUP=off`
+- UserPromptSubmit reminder that points clear lookup requests to the skill (explicit search or code requests, pasted errors, freshness words in a message that names a tool; opinion questions only when they also ask to search or for code), kill switch `LOOKUP=off`
 
 ## session-handoff 0.1.0
 
